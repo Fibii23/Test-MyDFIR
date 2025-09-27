@@ -1,25 +1,37 @@
 import java.util.Scanner;
 
-public class MidtermAct6 {
+public class MidtermAct7 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+        int score = 0;
 
-        for (int i = 1; i <= 3; i++) {
-            System.out.println("Transaction " + i);
+        for (int i = 1; i <= 5; i++) {
+            int num1 = (int)(Math.random() * 10);
+            int num2 = (int)(Math.random() * 10);
 
-            System.out.print("Enter Due Date (day number): ");
-            int dueDate = input.nextInt();
+            System.out.print("Question " + i + ": " + num1 + " x " + num2 + " = ");
+            int answer = input.nextInt();
 
-            System.out.print("Enter Return Date (day number): ");
-            int returnDate = input.nextInt();
-
-            if (returnDate <= dueDate) {
-                System.out.println("Returned on time.");
+            if (answer == num1 * num2) {
+                System.out.println("Correct!");
+                score++;
             } else {
-                int lateDays = returnDate - dueDate;
-                System.out.println("Late by " + lateDays + " day(s). Fine required.");
+                System.out.println("Try harder.");
             }
-            System.out.println();
+        }
+
+        switch (score) {
+            case 5:
+                System.out.println("Excellent");
+                break;
+            case 3: case 4:
+                System.out.println("Good");
+                break;
+            case 1: case 2:
+                System.out.println("Needs Practice");
+                break;
+            default:
+                System.out.println("Failed");
         }
     }
 }
