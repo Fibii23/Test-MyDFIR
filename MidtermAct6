@@ -1,53 +1,43 @@
 import java.util.Scanner;
 
-public class MidtermAct8 {
+public class MidtermAct9 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        int choice;
-        double total = 0;
 
-        do {
-            System.out.println("\nMenu:");
-            System.out.println("1 - Pizza (₱300)");
-            System.out.println("2 - Burger (₱150)");
-            System.out.println("3 - Pasta (₱200)");
-            System.out.println("0 - Exit");
-            System.out.print("Enter choice: ");
-            choice = input.nextInt();
+        for (int i = 1; i <= 3; i++) {
+            System.out.println("\nStudent " + i);
 
-            switch (choice) {
-                case 1:
-                    total += 300;
-                    if (300 > 500) {
-                        System.out.println("Free drink added!");
-                    } else {
-                        System.out.println("Pizza added.");
-                    }
-                    break;
-                case 2:
-                    total += 150;
-                    if (150 > 500) {
-                        System.out.println("Free drink added!");
-                    } else {
-                        System.out.println("Burger added.");
-                    }
-                    break;
-                case 3:
-                    total += 200;
-                    if (200 > 500) {
-                        System.out.println("Free drink added!");
-                    } else {
-                        System.out.println("Pasta added.");
-                    }
-                    break;
-                case 0:
-                    System.out.println("Exiting...");
-                    break;
-                default:
-                    System.out.println("Invalid choice.");
+            System.out.print("Enter attendance percentage: ");
+            int attendance = input.nextInt();
+
+            System.out.print("Enter grade: ");
+            int grade = input.nextInt();
+
+            if (attendance < 75) {
+                System.out.println("Failed due to attendance.");
+            } else {
+                if (grade >= 60) {
+                    System.out.println("Passed.");
+                } else {
+                    System.out.println("Failed due to grade.");
+                }
+
+                switch (grade / 10) {
+                    case 10:
+                    case 9:
+                        System.out.println("Performance: Excellent");
+                        break;
+                    case 8:
+                    case 7:
+                        System.out.println("Performance: Good");
+                        break;
+                    case 6:
+                        System.out.println("Performance: Average");
+                        break;
+                    default:
+                        System.out.println("Performance: Poor");
+                }
             }
-        } while (choice != 0);
-
-        System.out.println("Total Amount: ₱" + total);
+        }
     }
 }
